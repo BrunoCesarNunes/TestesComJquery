@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Effects - Animate demo</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<style>
+div#effect{
+	background-color:#33B5E5;
+	color:#FFFFFF;
+	margin:10px;
+	font-family:"Roboto Condensed";
+	font-size:20px;
+}
+.azul_comprimido{
+	width:50px;
+	height:50px;
+	background-color:#0099CC;
+	margin:10px;
+	padding:5px;
+	color:#FFFFFF;
+	overflow:hidden;
+}
+.azul_expandido{
+	width:500px;
+	height:50px;
+	background-color:#0099CC;
+	margin:10px;
+	padding:5px;
+	color:#FFFFFF;
+	border-radius:15px;
+}
+.toggler {
+	width: 500px;
+	height: 200px;
+	position: relative;
+	background-color:#CCCCCC
+}
+#button {
+	padding: .5em 1em;
+	text-decoration: none;
+}
+#effect {
+	width: 240px;
+	height: 135px;
+	padding: 0.4em;
+	position: relative;
+	background: #fff;
+}
+#effect h3 {
+	margin: 0;
+	padding: 0.4em;
+	text-align: center;
+}
+#texto{
+	 overflow:hidden;
+ }
+</style>
+<!---->
+<script> 
+var state=false;
+$(function() { 
+	$( "div#effect" ).mouseenter (function() {      
+	if (state==false){
+/*	$(this).switchClass( "azul_comprimido", "azul_expandido", 300, "easeInOutQuad" );*/
+	$(this).animate({backgroundColor: "#0099CC", color: "#fff", width: 500, opacity:.8, left:'10px'}, 300);
+		} 
+		state=true;
+		});
+  }); 
+
+$(function() {    
+	$( "div#effect" ).mouseleave(function() {
+		if (state==true){
+		$(this).animate({backgroundColor: "#0099CC", color: "#fff", width: 250, opacity:1, right:'0px'}, 300);
+/*	$(this).switchClass( "effect", "azul_comprimido", 300, "easeInOutQuad" );*/
+			}
+		state=false;
+		}); 
+	}); 
+</script><!---->
+
+</head>
+<body>
+  <div id="effect" class="azul_comprimido"  style="vertical-align:middle">
+  <div id="texto" style="height:20px; margin-top:50px;">
+        <!--<h3 class="ui-widget-header ui-corner-all">Animate</h3>-->
+        Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+    </div>
+  </div>
+  <div id="effect" class="azul_comprimido" style="vertical-align:middle">
+  <div id="texto" style="height:20px; margin-top:50px;">
+        <!--<h3 class="ui-widget-header ui-corner-all">Animate</h3>-->
+        Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+    </div>
+  </div>
+  <div id="effect" class="azul_comprimido" style="vertical-align:middle">
+  <div id="texto" style="height:20px; margin-top:50px;">
+        <!--<h3 class="ui-widget-header ui-corner-all">Animate</h3>-->
+        Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede. Nulla lorem metus, adipiscing ut, luctus sed, hendrerit vitae, mi.
+    </div>
+  
+</div>
+</body>
+</html>
